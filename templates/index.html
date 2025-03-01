@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function atualizarModelos() {
+            var marcaSelecionada = document.getElementById('marca').value;
+            var modeloSelect = document.getElementById('modelo');
+            
+            modeloSelect.innerHTML = '<option value="">Selecione o Modelo</option>';
+            
+            var modelosPorMarca = {
+                "Volkswagen": ["Fusca", "Gol", "Jetta", "Passat", "Tiguan", "Polo"],
+                "Chevrolet": ["Onix", "Cruze", "Celta", "S10", "Tracker", "Camaro"],
+                "Toyota": ["Corolla", "Hilux", "Yaris", "Etios", "Land Cruiser", "Fortuner"],
+                "Ford": ["Fiesta", "Fusion", "Focus", "Ranger", "Mustang"],
+                "Honda": ["Civic", "Fit", "HR-V", "CR-V", "City"],
+                "Fiat": ["Uno", "Palio", "Strada", "Toro", "Argo"],
+                "Nissan": ["Versa", "Sentra", "Kicks", "X-Trail", "Frontier"],
+                "Hyundai": ["HB20", "Creta", "Tucson", "Elantra", "Santa Fe"],
+                "BMW": ["X1", "320i", "M3", "X5", "Z4"],
+                "Mercedes-Benz": ["A-Class", "C-Class", "E-Class", "GLC", "CLA", "S-Class"],
+                "Audi": ["A3", "A4", "Q5", "Q3", "A6", "A8"]
+            };
+            
+            if (marcaSelecionada && modelosPorMarca[marcaSelecionada]) {
+                modelosPorMarca[marcaSelecionada].forEach(function(modelo) {
+                    var option = document.createElement('option');
+                    option.value = modelo;
+                    option.textContent = modelo;
+                    modeloSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Cadastro de Veículos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="visualizar">Ver Veículos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulário de Cadastro -->
+    <div class="container">
+        <h2>Cadastro de Veículo</h2>
+        <form action="/cadastro" method="POST">
+
+            <label for="marca">Marca</label>
+            <select name="marca" id="marca" required onchange="atualizarModelos()">
+                <option value="">Selecione a Marca</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Audi">Audi</option>
+            </select>
+
+            <label for="modelo">Modelo</label>
+            <select name="modelo" id="modelo" required>
+                <option value="">Selecione o Modelo</option>
+            </select>
+
+            <label for="ano">Ano</label>
+            <input type="number" name="ano" id="ano" placeholder="Ex: 2021" required>
+            
+            <label for="placa">Placa</label>
+            <input type="text" name="placa" id="placa" placeholder="Ex: ABC-1234" required>
+
+            <label for="cor">Cor</label>
+            <input type="text" name="cor" id="cor" placeholder="Ex: Branco" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

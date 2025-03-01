@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Carro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Carro</h2>
+        <form action="{{ url_for('editar', index=index) }}" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="marca">Marca</label>
+                <input type="text" name="marca" id="marca" value="{{ carro.marca }}" required>
+            </div>
+            <div>
+                <label for="modelo">Modelo</label>
+                <input type="text" name="modelo" id="modelo" value="{{ carro.modelo }}" required>
+            </div>
+            <div>
+                <label for="ano">Ano</label>
+                <input type="text" name="ano" id="ano" value="{{ carro.ano }}" required>
+            </div>
+            <div>
+                <label for="placa">Placa</label>
+                <input type="text" name="placa" id="placa" value="{{ carro.placa }}" required>
+            </div>
+            <div>
+                <label for="cor">Cor</label>
+                <input type="text" name="cor" id="cor" value="{{ carro.cor }}" required>
+            </div>
+
+            <!-- Exibe a imagem atual do carro, caso exista -->
+            {% if carro.foto %}
+                <div>
+                    <label>Imagem atual</label>
+                    <img src="{{ url_for('static', filename='imagens/' + carro.foto) }}" width="100" alt="Imagem do Carro">
+                </div>
+            {% endif %}
+
+            <!-- Campo para selecionar uma nova imagem -->
+            <div>
+                <label for="foto">Imagem do Carro</label>
+                <input type="file" name="foto" id="foto" accept="image/*">
+            </div>
+
+            <button type="submit">Salvar alterações</button>
+        </form>
+        <a href="{{ url_for('visualizar') }}">Voltar para a lista de carros</a>
+    </div>
+</body>
+</html>

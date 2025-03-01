@@ -1,0 +1,353 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1A1A1A; /* Fundo escuro confortável */
+    color: #F0F0F0; /* Texto claro para contraste */
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #3E3E3E; /* Fundo escuro suave */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título principal */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FF9F00; /* Laranja suave */
+    font-size: 36px;
+    font-weight: 600;
+}
+
+/* Títulos e subtítulos comuns */
+h3, h4, h5 {
+    color: #FF9F00; /* Laranja suave */
+    margin-bottom: 10px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input, form select {
+    padding: 16px;
+    border: 1px solid #555; /* Borda escura */
+    border-radius: 8px;
+    background-color: #333; /* Fundo escuro para os campos */
+    color: #F0F0F0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Foco nos inputs e selects */
+form input:focus, form select:focus {
+    border: 1px solid #FF9F00; /* Foco laranja */
+    background-color: #444; /* Fundo um pouco mais claro ao focar */
+    outline: none;
+}
+
+/* Botão de submit */
+form button {
+    padding: 16px;
+    background-color: #FF9F00; /* Laranja suave */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de hover no botão */
+form button:hover {
+    background-color: #F57C00; /* Tom mais escuro de laranja */
+    transform: translateY(-3px); /* Suaviza o efeito de movimento */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para o botão */
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 14px 20px;
+    text-align: left;
+    border: 1px solid #555;
+    font-size: 16px;
+}
+
+table th {
+    background-color: #333; /* Fundo escuro do cabeçalho */
+    color: #FF9F00; /* Laranja suave */
+}
+
+table tr:nth-child(even) {
+    background-color: #2C2C2C; /* Linhas alternadas de fundo escuro */
+}
+
+table tr:hover {
+    background-color: #444; /* Hover com fundo mais claro */
+    transform: scale(1.02); /* Levanta a linha para destacar */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Sucesso - Container */
+.sucesso-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #3E3E3E;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sucesso-container h3 {
+    font-size: 28px;
+    color: #FF9F00; /* Laranja suave */
+    margin-bottom: 20px;
+}
+
+.sucesso-container p {
+    font-size: 18px;
+    color: #F0F0F0;
+    margin-bottom: 40px;
+}
+
+.sucesso-container a {
+    display: inline-block;
+    padding: 14px 22px;
+    background-color: #FF9F00; /* Laranja suave */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+    
+}
+
+/* Efeito de hover no link dentro do container de sucesso */
+.sucesso-container a:hover {
+    background-color: #F57C00; /* Laranja mais escuro */
+    transform: translateY(-2px); /* Efeito de elevação mais suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    opacity: 1; /* Torna o texto visível ao passar o mouse */
+}
+
+/* Animação de Fade In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container, .sucesso-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    form input, form select {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    form button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
+
+/* Visualização Detalhada */
+.visualizar-container {
+    background-color: #3E3E3E; /* Fundo escuro suave */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    text-align: center;
+    margin: 40px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.visualizar-container h2 {
+    font-size: 36px;
+    color: #FF9F00; /* Laranja suave */
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Tabela dentro da visualização */
+.visualizar-container table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.visualizar-container table th, .visualizar-container table td {
+    padding: 14px 20px;
+    text-align: left;
+    border: 1px solid #555;
+    font-size: 16px;
+}
+
+.visualizar-container table th {
+    background-color: #333;
+    color: #FF9F00; /* Laranja suave */
+}
+
+.visualizar-container table tr:nth-child(even) {
+    background-color: #2C2C2C;
+}
+
+.visualizar-container table tr:hover {
+    background-color: #444;
+    transform: scale(1.02); /* Levanta um pouco a linha */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Botão de apagar */
+.btn-apagar {
+    background-color: #FF5722; /* Laranja-avermelhado suave */
+    padding: 15px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 20px;
+}
+
+.btn-apagar:hover {
+    background-color: #E64A19; /* Tom mais escuro de laranja-avermelhado */
+    transform: translateY(-3px); /* Movimenta o botão para cima */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave ao passar o mouse */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+header .logo h1 {
+    color: #FF9F00;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #FF9F00;
+}
+
+/* Botão de ação em links */
+a {
+    display: inline-block;
+    padding: 14px 22px;
+    background-color: #FF9F00; /* Laranja suave */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, opacity 0.3s;   
+}
+
+a:hover {
+    background-color: #F57C00; /* Laranja mais escuro */
+    transform: translateY(-2px); /* Efeito de elevação mais suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    opacity: 1; /* Torna o texto visível ao passar o mouse */
+}
+
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a; /* Cor de fundo da trilha */
+    /* Bordas arredondadas da trilha */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF9F00; /* Cor do botão da barra de rolagem */
+    transition: background 0.3s; /* Transição suave ao passar o mouse */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF9F00; /* Cor ao passar o mouse */
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Carro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Detalhes do Carro</h2>
+
+        <div class="detalhes-card">
+            <!-- Exibe a foto do carro -->
+            <div class="foto-carro">
+                {% if carro.foto %}
+                    <img src="{{ url_for('static', filename='imagens/' + carro.foto) }}" alt="Foto do Carro" style="max-width: 300px;">
+                {% else %}
+                    <p>Sem Foto</p>
+                {% endif %}
+            </div>
+
+            <div class="informacoes">
+                <p><strong>Marca:</strong> {{ carro.marca }}</p>
+                <p><strong>Modelo:</strong> {{ carro.modelo }}</p>
+                <p><strong>Ano:</strong> {{ carro.ano }}</p>
+                <p><strong>Placa:</strong> {{ carro.placa }}</p>
+                <p><strong>Cor:</strong> {{ carro.cor }}</p>
+            </div>
+        </div>
+
+        <a href="{{ url_for('visualizar') }}" class="btn-voltar">Voltar para a lista de carros</a>
+    </div>
+</body>
+</html>
